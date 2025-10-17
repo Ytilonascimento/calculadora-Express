@@ -2,15 +2,15 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
-app.get("/calculadora", (req, res) => {
+app.get("/operacao/:tipo", (req, res) => {
     try {
-        const { operacao } = req.query; // operação matemática (requisição)
+        const {tipo } = req.params; // operação matemática (requisição)
         const { numUm, numDois } = req.query;
         let result = 0;
         if (numUm == undefined || numUm == "" || isNaN(numUm) || numDois == undefined || numDois == "" || isNaN(numDois)) {
             return res.status(400).send("Dado inválido")
         }
-        switch (operacao) {
+        switch (tipo) {
             case "soma":
                 result = parseFloat(numUm) + parseFloat(numDois);
                 break;
