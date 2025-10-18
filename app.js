@@ -24,7 +24,7 @@ app.get("/operacao/:tipo", (req, res) => {
                 break;
 
             case "divisao":
-                if (numDois===0);{
+                if (numDois==0){
                     return res.status(400).send("erro: Divisão por zero nao é permitidada");
                 }
                 result = parseFloat(numUm) / parseFloat(numDois);
